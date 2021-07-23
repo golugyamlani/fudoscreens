@@ -77,7 +77,31 @@ class SignInScreen extends StatelessWidget {
                       ),
                     ),
                     // Made with love in india; maybe merge with fudo icon
-                    // Phone Auth Field
+                    Container(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Made with ',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Icon(
+                            Icons.favorite,
+                            color: Colors.deepPurple,
+                          ),
+                          Text(
+                            ' In India',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -90,7 +114,7 @@ class SignInScreen extends StatelessWidget {
                     children: [
                       // Phone Auth Box
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                         child: Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -117,7 +141,10 @@ class SignInScreen extends StatelessWidget {
                                       const EdgeInsets.fromLTRB(0, 8, 8, 8),
                                   child: Container(
                                     width: MediaQuery.of(context).size.width,
-                                    child: TextFormField(),
+                                    child: TextFormField(
+                                      decoration: InputDecoration(
+                                          hintText: "1234 567 890"),
+                                    ),
                                   ),
                                 ),
                               ),
@@ -125,9 +152,9 @@ class SignInScreen extends StatelessWidget {
                                 flex: 6,
                                 child: Padding(
                                   padding:
-                                      const EdgeInsets.fromLTRB(0, 0, 2, 0),
+                                      const EdgeInsets.fromLTRB(0, 0, 4, 0),
                                   child: SizedBox(
-                                    height: 58,
+                                    height: 50,
                                     child: TextButton(
                                       onPressed: () {},
                                       child: Text(
@@ -160,7 +187,7 @@ class SignInScreen extends StatelessWidget {
                       ),
                       // Continue with Email
                       Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
                         child: SizedBox(
                           height: 50,
                           child: TextButton(
@@ -198,7 +225,7 @@ class SignInScreen extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.fromLTRB(16, 8, 4, 8),
                               child: SizedBox(
                                 height: 50,
                                 child: TextButton(
@@ -231,7 +258,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.all(8.0),
+                              padding: const EdgeInsets.fromLTRB(4, 8, 16, 8),
                               child: SizedBox(
                                 height: 50,
                                 child: TextButton(
@@ -243,10 +270,6 @@ class SignInScreen extends StatelessWidget {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceEvenly,
                                     children: [
-                                      // Icon(
-                                      //   Icons.email,
-                                      //   color: Color(0xFF404057),
-                                      // ),
                                       Text(
                                         'Google',
                                         style: TextStyle(

@@ -1,8 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:fudoscreens/home.dart';
+import 'package:fudoscreens/verify_otp.dart';
 
 class SignInScreen extends StatelessWidget {
+  void moveToHome(BuildContext ctx) {
+    Navigator.of(ctx).pushReplacement(MaterialPageRoute(builder: (_) {
+      return Home();
+    }));
+  }
+
+  void moveToVerify(BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+      return VerifyOTP();
+    }));
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -33,7 +47,7 @@ class SignInScreen extends StatelessWidget {
                     ),
                     Expanded(
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () => moveToHome(context),
                         child: Text(
                           'Skip',
                           style: TextStyle(color: Colors.white),
@@ -148,7 +162,7 @@ class SignInScreen extends StatelessWidget {
                             child: SizedBox(
                               height: 60,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed: () => moveToVerify(context),
                                 child: Text(
                                   'Send OTP',
                                   style: TextStyle(

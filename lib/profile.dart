@@ -4,7 +4,12 @@ class Profile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('Profile'),
+      child: Center(
+        child: Text(
+          'Coming Soon...',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 27),
+        ),
+      ),
     );
   }
 }

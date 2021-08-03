@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/rendering.dart';
+import 'package:fudoscreens/restaurant_page.dart';
 import 'slider_top_restaurants_component.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_options.dart';
@@ -68,6 +69,11 @@ class _LandingPageState extends State<LandingPage> {
       title: 'Wrap',
     ),
   ];
+  void moveToRestaurant(BuildContext ctx) {
+    Navigator.of(ctx).push(MaterialPageRoute(builder: (_) {
+      return RestaurantPage();
+    }));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -306,39 +312,42 @@ class _LandingPageState extends State<LandingPage> {
                     Expanded(
                       child: CarouselSlider(
                         items: _items.map((item) {
-                          return ColumnSuper(
-                            children: <Widget>[
-                              CircleAvatar(
-                                radius: 36.5,
-                                backgroundColor: Colors.white,
-                                backgroundImage: AssetImage(item.imagepath),
-                              ),
-                              Container(
-                                padding: EdgeInsets.all(6),
-                                child: Text(
-                                  item.title,
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                    fontSize: 12,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                          return GestureDetector(
+                            onTap: () => moveToRestaurant(context),
+                            child: ColumnSuper(
+                              children: <Widget>[
+                                CircleAvatar(
+                                  radius: 36.5,
+                                  backgroundColor: Colors.white,
+                                  backgroundImage: AssetImage(item.imagepath),
+                                ),
+                                Container(
+                                  padding: EdgeInsets.all(6),
+                                  child: Text(
+                                    item.title,
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  // width: 70,
+                                  height: 28,
+                                  decoration: BoxDecoration(
+                                    gradient: LinearGradient(
+                                      colors: [
+                                        Color(0xFF8743FF),
+                                        Color(0xFF4136F1)
+                                      ],
+                                    ),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(7)),
                                   ),
                                 ),
-                                // width: 70,
-                                height: 28,
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Color(0xFF8743FF),
-                                      Color(0xFF4136F1)
-                                    ],
-                                  ),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(7)),
-                                ),
-                              ),
-                            ],
-                            innerDistance: -12,
+                              ],
+                              innerDistance: -12,
+                            ),
                           );
                         }).toList(),
                         // carouselController: _controller,
